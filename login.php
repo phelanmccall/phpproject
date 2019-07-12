@@ -1,5 +1,8 @@
    <?php include_once("navbar.php"); ?>
    
    <h1><?php
-        echo $_POST["name"];
+        session_start();
+        $_SESSION["username"] = $_POST["name"];
+        echo $_SESSION["username"];
+
     ?></h1>

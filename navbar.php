@@ -1,5 +1,7 @@
 <nav>
     <p>
-        Hello, <?php $_SESSION["username"] ?>!
+        Hello, <?php 
+        session_start();
+        $_SESSION["username"] ?>!
     </p>
 </nav>
