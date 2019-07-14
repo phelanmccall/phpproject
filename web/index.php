@@ -1,4 +1,4 @@
-<?php require_once('config.php') ?>
+<?php require_once('config.php'); ?>
 <?php
 require('../vendor/autoload.php');
 
@@ -28,7 +28,7 @@ $app->post('/api/data', function() use($app) {
     $name = esc_html($_POST["name"]);
     $sql = "INSERT INTO data (name)
     VALUES ('$name')"
-		mysql_query($conn, $query);
+		mysqli_query($conn, $query);
     
     $dataId = mysql_insert_id($conn);
     return $dataId;
