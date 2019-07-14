@@ -13,8 +13,11 @@
   </div>
 </div>
 <div class="container">
-  <p>Hello {{name}}</p>
- <form action="login.php" method="post">
+  <p>Hello <php? if(isset($_POST["username"])){
+    echo print_r($_POST)
+  }else{ echo "NO USERNAME" } ?> </p>
+ 
+ <form action="" method="post">
         <input name="name" />
         <input type="submit"/>
     </form>
