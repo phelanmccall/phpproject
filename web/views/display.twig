@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <ul>
+        <?php foreach($data as $datum): ?>
+            <li> <?php echo print_r($datum) ?> </li>
+        <?php endforeach?>
+    </ul>
+{% endblock %}
