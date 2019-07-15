@@ -42,9 +42,9 @@ $app->get('/api/data', function() use($app) {
 
   global $conn;
   $sql = "SELECT * FROM data";
-  $result = mysql_query($conn, $sql);
+  $result = mysqli_query($conn, $sql);
 
-  $data = mysql_fetch_all($result, MYSQL_ASSOC);
+  $data = mysqli_fetch_all($result, MYSQL_ASSOC);
 
   return $app['twig']->render('display.twig',['data' => $data]);
 
