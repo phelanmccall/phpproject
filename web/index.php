@@ -20,8 +20,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 $app->get('/', function() use($app) {
   $app['monolog']->addDebug('logging output.');
   return $app['twig']->render('index.twig');
-<<<<<<< HEAD
-=======
 });
 
 $app->post('/api/data', function() use($app) {
@@ -50,7 +48,6 @@ $app->get('/api/data', function() use($app) {
 
   return $app['twig']->render('display.twig',['data' => $data]);
 
->>>>>>> e1394c3a1c2af4e4218765afd9208ec5bcd03d84
 });
 
 $app->run();
