@@ -28,7 +28,7 @@ $app->post('/api/data', function() use($app) {
     $name = htmlspecialchars($_POST["name"]);
     $sql = "INSERT INTO data (name)
     VALUES ('$name')";
-		mysqli_query($conn, $query);
+		mysqli_query($conn, $sql);
     
     $dataId = mysql_insert_id($conn);
     return $dataId;
