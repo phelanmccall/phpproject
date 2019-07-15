@@ -25,7 +25,7 @@ $app->get('/', function() use($app) {
 $app->post('/api/data', function() use($app) {
   global $conn;
   if(isset($_POST["name"])){
-    $name = esc_html($_POST["name"]);
+    $name = htmlspecialchars($_POST["name"]);
     $sql = "INSERT INTO data (name)
     VALUES ('$name')";
 		mysqli_query($conn, $query);
