@@ -30,7 +30,7 @@ $app->post('/api/data', function() use($app) {
     VALUES ('$name')";
 		mysqli_query($conn, $sql);
     
-    $dataId = mysql_insert_id($conn);
+    $dataId = mysqli_insert_id($conn);
     return $dataId;
   }else{
     return "WHOOPS";
