@@ -18,12 +18,12 @@
     if(mysqli_query($conn, $sql)){
       echo 'Table dropped.';
     }else{
-      echo "ERROR: " . mysqli_error($conn)
+      echo "ERROR: " . mysqli_error($conn);
     }
     if(mysqli_query($conn, $sql2)){
       echo 'Table creted.';
     }else{
-      echo "ERROR: " . mysqli_error($conn)
+      echo "ERROR: " . mysqli_error($conn);
     }
 
 
