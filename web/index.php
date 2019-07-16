@@ -43,10 +43,11 @@ $app->get('/api/data', function() use($app) {
   global $conn;
   $sql = "SELECT * FROM data";
   $result = mysqli_query($conn, $sql);
-if($result){
+  if($result){
 	  $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}else{
-	$data = "NO";
+  }else{
+	  $data = "NO";
+  }
 
   return $app['twig']->render('display.twig',['data' => $data]);
 
