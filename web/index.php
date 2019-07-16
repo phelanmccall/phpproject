@@ -33,7 +33,7 @@ $app->post('/api/data', function() use($app) {
       $dataId = mysqli_insert_id($conn);
       return $dataId;
     }else{
-      return echo mysqli_error($conn);
+      return mysqli_error($conn);
     }
     
   }else{
