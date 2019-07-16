@@ -25,12 +25,12 @@ $app->get('/', function() use($app) {
 $app->post('/api/data', function() use($app) {
   global $conn;
   if(isset($_POST["name"])){
-    $name = esc_html($_POST["name"]);
+    $name = htmlspecialchars($_POST["name"]);
     $sql = "INSERT INTO data (name)
-    VALUES ('$name')"
-		mysqli_query($conn, $query);
+    VALUES ('$name')";
+		mysqli_query($conn, $sql);
     
-    $dataId = mysql_insert_id($conn);
+    $dataId = mysqli_insert_id($conn);
     return $dataId;
   }else{
     return "WHOOPS";
@@ -42,9 +42,12 @@ $app->get('/api/data', function() use($app) {
 
   global $conn;
   $sql = "SELECT * FROM data";
-  $result = mysql_query($conn, $sql);
-
-  $data = mysql_fetch_all($result, MYSQL_ASSOC);
+  $result = mysqli_query($conn, $sql);
+  if($result){
+	  $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  }else{
+	  $data = "NO";
+  }
 
   return $app['twig']->render('display.twig',['data' => $data]);
 
