@@ -53,7 +53,7 @@ $app->get('/api/data', function() use($app) {
 	  $data = "NO";
   }
 
-  return $app['twig']->render('display.twig',['data' => $data]);
+  return $app['twig']->render('display.twig',array('data' => $data));
 
 });
 
