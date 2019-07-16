@@ -28,10 +28,14 @@ $app->post('/api/data', function() use($app) {
     $name = htmlspecialchars($_POST["name"]);
     $sql = "INSERT INTO data (name)
     VALUES ('$name')";
-		mysqli_query($conn, $sql);
+
+    if(mysqli_query($conn, $sql)){
+      $dataId = mysqli_insert_id($conn);
+      return $dataId;
+    }else{
+      return echo mysqli_error($conn);
+    }
     
-    $dataId = mysqli_insert_id($conn);
-    return $dataId;
   }else{
     return "WHOOPS";
   }
