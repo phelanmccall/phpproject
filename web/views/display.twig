@@ -2,6 +2,9 @@
 
 {% block content %}
     <ul>
-        <li> {{data}} </li>    
+        {% for datum in data %}
+           <li> {{datum}} </li> 
+        {% endfor %}
+           
     </ul>
 {% endblock %}
